@@ -1,8 +1,6 @@
 # Docker Swarm
 ================
 
-
-
 ## Table of Contents
 -----------------
 
