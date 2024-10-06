@@ -1,0 +1,15 @@
+tls:
+  certificates:
+    - certFile: "/certs/traefik.crt"
+      keyFile: "/certs/traefik.key"
+      stores:
+        - default
+    - certFile: "/certs/portainer.crt"
+      keyFile: "/certs/portainer.key"
+      stores:
+        - default
+  stores:
+    default:
+      defaultCertificate:
+        certFile: "/certs/traefik.crt"
+        keyFile: "/certs/traefik.key"

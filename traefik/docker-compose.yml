@@ -16,8 +16,12 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.websecure.address=:443"
       - "--entrypoints.traefik.address=:8080"
+      - "--providers.file.directory=/config"
+      - "--providers.file.watch=true"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./certs:/certs"
+      - "./config:/config"
     deploy:
       placement:
         constraints:
@@ -27,6 +31,8 @@ services:
         - "traefik.http.routers.traefik.rule=Host(`traefik.local`)"
         - "traefik.http.services.traefik.loadbalancer.server.port=8080"
         - "traefik.docker.network=traefik-public"
+        - "traefik.http.routers.traefik.entrypoints=websecure"
+        - "traefik.http.routers.traefik.tls=true"
 
 networks:
   default:
