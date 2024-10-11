@@ -8,6 +8,14 @@ tls:
       keyFile: "/certs/portainer.key"
       stores:
         - default
+    - certFile: "/certs/ppdb-sekolah.crt"
+      keyFile: "/certs/ppdb-sekolah.key"
+      stores:
+        - default
+    - certFile: "/certs/whoami.crt"
+      keyFile: "/certs/whoami.key"
+      stores:
+        - default
   stores:
     default:
       defaultCertificate:
